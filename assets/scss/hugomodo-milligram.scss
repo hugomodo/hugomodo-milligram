@@ -1,0 +1,99 @@
+@import "milligram/milligram";
+
+body {
+  //@extend .container-fluid;
+  @extend .container;
+}
+
+img {
+  //@extend .img-fluid;
+}
+
+body > header nav ul {
+  //@extend .navigation;
+  li {
+    //@extend .nav-item;
+    a {
+      //@extend .nav-link;
+    }
+  }
+}
+
+input:not([type]) {
+  @extend input[type='text'];
+}
+
+// HugoModo base styles
+header nav ul, ul.pagination, ul.breadcrumbs {
+  padding: 0;
+  list-style-type: none;
+  li {
+    display: inline-block;
+  }
+}
+
+ul.breadcrumbs {
+  li{
+    &:after {
+      content: "\00BB";
+    }
+    &:last-child:after {
+      content: "";
+    }
+  }
+}
+// End HugoModo base styles
+
+// HugoModo article resets
+article:not(.author) {
+  display:flex;
+  flex-flow:column;
+  > * {
+    order: 2;
+  }
+  header {
+    order: 1;
+  }
+  figure:first-child {
+    margin: 1em 0;
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
+article.author {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+  > * {
+    order: 2;
+  }
+  header {
+    width:100%;
+    order: 1;
+    h4 {
+      margin:0;
+    }
+  }
+  @mixin inline-author-bio($width: 50%) {
+    order: 2;
+    @media screen and (min-width: 500px) {
+      display: inline-block;
+      width: calc(#{$width} - 0.5em)
+    }
+  }
+  figure:first-child {
+    margin:0;
+    @include inline-author-bio(30%);
+  }
+  address {
+    @include inline-author-bio(70%);
+  }
+  section.bio {
+    width:100%;
+    order: 1;
+  }
+}
+// End HugoModo article resets
