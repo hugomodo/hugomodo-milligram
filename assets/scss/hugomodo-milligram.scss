@@ -9,7 +9,7 @@ img {
   //@extend .img-fluid;
 }
 
-body > header nav ul {
+header#hugoModule-siteHeader nav ul {
   //@extend .navigation;
   li {
     //@extend .nav-item;
@@ -43,7 +43,7 @@ ul.breadcrumbs {
   }
 }
 
-body > header > strong {
+header#hugoModule-siteHeader > strong {
   // See normalize h1
   font-size: 4.6rem;
   line-height: 1.2;
